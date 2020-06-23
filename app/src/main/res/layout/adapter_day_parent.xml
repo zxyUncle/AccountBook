@@ -50,4 +50,10 @@
         android:overScrollMode="never"
         android:scrollbars="none"
         app:layout_constraintTop_toBottomOf="@id/ivDayParentBottom" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/mGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="rvDayParent,ivDayParentBottom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

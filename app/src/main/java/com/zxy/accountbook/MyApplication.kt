@@ -9,7 +9,7 @@ import org.litepal.LitePal
  * *
  * ******************************************
  */
-class MyApplication:Application() {
+class MyApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         LitePal.initialize(this)

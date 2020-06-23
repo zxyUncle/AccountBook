@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--自定义万能布局Dialog 背景透明-->
+    <style name="MyDilog" parent="Theme.AppCompat.Dialog">
+        <!--设置window的窗口背景为透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>

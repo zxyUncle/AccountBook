@@ -100,12 +100,22 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/mRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:overScrollMode="never"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-                android:scrollbars="none" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ImageView
+        android:id="@+id/ivMainAdd"
+        android:layout_margin="@dimen/dp20"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

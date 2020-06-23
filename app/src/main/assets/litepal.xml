@@ -4,5 +4,6 @@
     <version value="1" />
     <list>
         <mapping class="com.zxy.accountbook.empty.BillBean" />
+        <mapping class="com.zxy.accountbook.empty.DataBean" />
     </list>
 </litepal>

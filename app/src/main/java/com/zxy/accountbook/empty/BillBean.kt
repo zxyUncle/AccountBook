@@ -1,5 +1,6 @@
 package com.zxy.accountbook.empty
 
+import org.litepal.annotation.Column
 import org.litepal.crud.LitePalSupport
 
 /**
@@ -9,13 +10,13 @@ import org.litepal.crud.LitePalSupport
  * ******************************************
  */
 data class BillBean(
-    var id:String,
-    var yearName:Int,
-    var monthName:Int,
-    var dayName:Int,
-    var timestamp:Long,//时间戳
-    var state:Int,//账单类型：1、支出，2、收入
-    var type:Int,//水电煤、
-    var content:String,//账单内容
-    var price:Double//账单内容
-):LitePalSupport()
+    var yearName: Int,
+    var monthName: Int,
+    var dayName: Int,
+    var timestamp: Long,//时间戳
+    @Column(ignore = true)
+    var isExtend: Boolean = false,
+    var id: Long = 0,
+    @Column(ignore = true)
+    var listData: ArrayList<DataBean> = arrayListOf()
+) : LitePalSupport()
