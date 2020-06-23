@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 功能： -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp10">
+
+    <TextView
+        android:id="@+id/tvDayParentName"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_semicircle_no_bottom"
+        android:padding="@dimen/dp5"
+        android:text="06月23日 周二"
+        android:textColor="@color/color_FF5722"
+        android:textSize="@dimen/dp16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/mView"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:background="@color/color_FF5722"
+        app:layout_constraintBottom_toBottomOf="@id/tvDayParentName"
+        app:layout_constraintLeft_toRightOf="@id/tvDayParentName"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/mTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp15"
+        android:text="收入："
+        android:textColor="#4CAF50"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintLeft_toRightOf="@id/mView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="支出："
+        android:textColor="#E91E63"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/mTextView"
+        app:layout_constraintTop_toBottomOf="@id/mTextView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

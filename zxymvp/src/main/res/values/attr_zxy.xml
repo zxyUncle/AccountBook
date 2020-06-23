@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 功能：自定义attr -->
+<resources>
+    <attr name="attr_zxy" format="reference" />
+    <declare-styleable name="ZXY">
+        <!-- 颜色       -->
+        <attr name="titleTextColor" format="color" />
+        <attr name="rightTextColor" format="color" />
+        <!-- 图片       -->
+        <attr name="leftImg" format="reference" />
+        <attr name="rightImg1" format="reference" />
+        <attr name="rightImg2" format="reference" />
+        <!-- 文案       -->
+        <attr name="titleText" format="string" />
+        <attr name="rightText" format="string" />
+    </declare-styleable>
+</resources>
