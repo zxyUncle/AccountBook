@@ -1,11 +1,9 @@
 package com.zxy.accountbook.view
 
-import android.Manifest
-import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.tbruyelle.rxpermissions2.RxPermissions
 import com.zxy.accountbook.R
 import com.zxy.accountbook.adapter.DayParentAdapter
 import com.zxy.accountbook.empty.BillBean

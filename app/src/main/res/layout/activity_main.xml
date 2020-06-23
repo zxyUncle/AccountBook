@@ -110,12 +110,14 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <ImageView
+    <com.zxy.accountbook.utils.MyFloatButton
         android:id="@+id/ivMainAdd"
-        android:layout_margin="@dimen/dp20"
         android:layout_width="@dimen/dp50"
         android:layout_height="@dimen/dp50"
+        android:layout_marginRight="@dimen/dp20"
+        android:layout_marginBottom="@dimen/dp60"
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
