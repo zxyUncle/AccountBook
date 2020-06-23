@@ -54,7 +54,8 @@ open abstract class BaseAppCompatActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        tvTitle.isSelected = tvTitle.text.length > 9  //标题开启关闭走马灯
+        if (tvTitle != null)
+            tvTitle.isSelected = tvTitle.text.length > 9  //标题开启关闭走马灯
     }
 
 
@@ -68,7 +69,9 @@ open abstract class BaseAppCompatActivity : AppCompatActivity() {
         }
     }
 
-    private fun hasToolBar() = true
+    open fun hasToolBar(): Boolean {
+        return true
+    }
 
     override fun onDestroy() {
         super.onDestroy()

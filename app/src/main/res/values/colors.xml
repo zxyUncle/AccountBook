@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#006200EE</color>
+    <color name="colorPrimaryDark">#003700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
     <color name="prompt_success">#000000</color>
     <color name="prompt_error">#ff0000</color>
     <color name="prompt_warning">#3D55F0</color>
 
-    <color name="color_FF5722">#FF5722</color>
+    <color name="color_F2A86B">#F2A86B</color>
     <color name="color_010101">#010101</color>
     <color name="color_e5e5e5">#E5E5E5</color>
     <color name="color_e2e2e2">#E2E2E2</color>

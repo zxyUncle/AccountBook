@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 功能： -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp10">
+
+    <TextView
+        android:id="@+id/tvDaySonType"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp5"
+        android:layout_marginLeft="@dimen/dp5"
+        android:text="水电气"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp18"
+        app:layout_constraintLeft_toRightOf="@id/mImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDaySonContent"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp5"
+        android:text="煤气，水电"
+        android:textColor="@color/color_898989"
+        android:textSize="@dimen/dp14"
+        app:layout_constraintLeft_toRightOf="@id/mImageView"
+        app:layout_constraintTop_toBottomOf="@id/tvDaySonType"
+         />
+
+    <ImageView
+        android:id="@+id/mImageView"
+        android:layout_width="@dimen/dp40"
+        android:layout_height="@dimen/dp40"
+        android:src="@drawable/ic_gray_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivDaySonType"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"
+        android:src="@drawable/ic_dengpao"
+        app:layout_constraintBottom_toBottomOf="@id/mImageView"
+        app:layout_constraintLeft_toLeftOf="@id/mImageView"
+        app:layout_constraintRight_toRightOf="@id/mImageView"
+        app:layout_constraintTop_toTopOf="@id/mImageView" />
+
+    <TextView
+        android:id="@+id/tvDaySonPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/dp10"
+        android:padding="@dimen/dp5"
+        android:text="¥523.00"
+        android:textColor="@color/color_898989"
+        android:textSize="@dimen/dp14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/mImageView1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+
+    <ImageView
+        android:id="@+id/mImageView1"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"
+        android:src="@drawable/ic_gray_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivDaySonPayType"
+        android:layout_width="@dimen/dp15"
+        android:layout_height="@dimen/dp15"
+        android:src="@drawable/ic_dengpao"
+        app:layout_constraintBottom_toBottomOf="@id/mImageView1"
+        app:layout_constraintLeft_toLeftOf="@id/mImageView1"
+        app:layout_constraintRight_toRightOf="@id/mImageView1"
+        app:layout_constraintTop_toTopOf="@id/mImageView1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

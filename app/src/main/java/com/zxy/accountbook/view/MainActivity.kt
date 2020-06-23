@@ -2,13 +2,12 @@ package com.zxy.accountbook.view
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kd.kotlin.extend.utils.visible
+import com.bumptech.glide.Glide
+import com.zxy.accountbook.utils.visible
 import com.zxy.accountbook.R
 import com.zxy.accountbook.adapter.DayParentAdapter
 import com.zxy.accountbook.presenter.MainPresenter
-import com.zxy.accountbook.utils.MyItemTouchHelperCallback
 import com.zxy.accountbook.utils.snackbar.ZToast
 import com.zxy.zxymvp.mvp.impl.BaseMvpActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,37 +19,36 @@ import kotlinx.android.synthetic.main.activity_main.*
  * ******************************************
  */
 class MainActivity : BaseMvpActivity<MainPresenter>() {
-    private var listData = mutableListOf<String>("1","2","2","2","2")
+    private var listData = mutableListOf<String>("1", "2", "2", "2", "2")
     private var firstClickBack: Long = 0
     private val mDayAdapter by lazy {
         DayParentAdapter()
     }
-    private  val myItemTouchHelperCallback by lazy {
-        MyItemTouchHelperCallback(mDayAdapter, this)
-    }
-
     override var layoutId: Int = R.layout.activity_main
     override fun initView(savedInstanceState: Bundle?) {
-        //返回按钮点击事件
-        llTitleLeft.visible()
         //recyclerview
         mRecyclerView.layoutManager = LinearLayoutManager(this)
         mRecyclerView.adapter = mDayAdapter
         mDayAdapter.setNewInstance(listData)
-        //拖动
-        var helper = ItemTouchHelper(myItemTouchHelperCallback)
-        helper.attachToRecyclerView(mRecyclerView)
         //监听
         initListener()
 
     }
 
+    override fun hasToolBar() = false
+
     private fun initListener() {
-        llTitleRightIv1.setOnClickListener {
-            Toast.makeText(this, "分享", Toast.LENGTH_SHORT).show()
+        llTitleLeft.setOnClickListener {
+            presenter.add()
+            Toast.makeText(this, "年", Toast.LENGTH_SHORT).show()
         }
-        llTitleRightTv.setOnClickListener {
-            Toast.makeText(this, "保存", Toast.LENGTH_SHORT).show()
+        llTitleRightIv.setOnClickListener {
+            presenter.select()
+            Toast.makeText(this, "月", Toast.LENGTH_SHORT).show()
+        }
+
+        mDayAdapter.setOnItemClickListener { adapter, view, position ->
+
         }
     }
 
