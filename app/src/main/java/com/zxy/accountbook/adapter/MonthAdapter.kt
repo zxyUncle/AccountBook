@@ -13,8 +13,7 @@ import kotlinx.android.synthetic.main.adapter_month.view.*
  * * 月份适配器
  * ******************************************
  */
-class MonthAdapter : BaseQuickAdapter<BillBean, BaseViewHolder>(R.layout.adapter_month),
-    MyItemTouchHelperCallback.OnItemPositionListener {
+class MonthAdapter : BaseQuickAdapter<BillBean, BaseViewHolder>(R.layout.adapter_month) {
     override fun convert(holder: BaseViewHolder, item: BillBean) {
         holder.itemView.run {
             tvYearName.text = "${item.monthName}"
@@ -24,18 +23,6 @@ class MonthAdapter : BaseQuickAdapter<BillBean, BaseViewHolder>(R.layout.adapter
                 tvYearName.setTextColor(context.resources.getColor(R.color.color_333333))
             }
         }
-    }
-
-    override fun onItemSwap(from: Int, target: Int) {
-        val s = data[from]
-        data.removeAt(from)
-        data.add(target, s)
-        notifyItemMoved(from, target)
-    }
-
-    override fun onItemMoved(position: Int) {
-        data.removeAt(position)
-        notifyItemRemoved(position)
     }
 
 }

@@ -43,6 +43,27 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mView" />
 
+    <TextView
+        android:id="@+id/tvDayParentIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp5"
+        android:text="收入 996.00"
+        android:layout_marginRight="@dimen/dp10"
+        android:textColor="@color/color_898989"
+        android:textSize="@dimen/dp14"
+        app:layout_constraintRight_toLeftOf="@id/tvDayParentExpend" />
+    <TextView
+        android:id="@+id/tvDayParentExpend"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp5"
+        android:layout_marginRight="@dimen/dp10"
+        android:text="支出 66.00"
+        android:textColor="@color/color_898989"
+        android:textSize="@dimen/dp14"
+        app:layout_constraintRight_toLeftOf="@id/ivDayParentTop" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDayParent"
         android:layout_width="match_parent"

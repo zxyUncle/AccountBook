@@ -29,10 +29,6 @@ class DayParentAdapter : BaseQuickAdapter<BillBean, BaseViewHolder>(R.layout.ada
             rvDayParent.layoutManager = LinearLayoutManager(context)
             rvDayParent.adapter = daySonAdapter
             daySonAdapter.setNewInstance(item.listData)
-            //拖动
-            var myItemTouchHelperCallback = MyItemTouchHelperCallback(daySonAdapter, context)
-            var helper = ItemTouchHelper(myItemTouchHelperCallback)
-            helper.attachToRecyclerView(rvDayParent)
 
             if (item.isExtend) {
                 mGroup.visible(0)

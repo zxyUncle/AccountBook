@@ -16,26 +16,21 @@ import kotlinx.android.synthetic.main.adapter_day_son.view.*
  * * 天子级适配器
  * ******************************************
  */
-class DaySonAdapter : BaseQuickAdapter<DataBean, BaseViewHolder>(R.layout.adapter_day_son),
-    MyItemTouchHelperCallback.OnItemPositionListener  {
+class DaySonAdapter : BaseQuickAdapter<DataBean, BaseViewHolder>(R.layout.adapter_day_son) {
     override fun convert(holder: BaseViewHolder, item: DataBean) {
        holder.itemView.run {
            tvDaySonType.text = item.content
            tvDaySonPrice.text = item.price.toString()
+          when(item.state){
+              1->{
+                  tvDaySonPrice.setTextColor(context.resources.getColor(R.color.color_333333))
+              }
+              2->{
+                  tvDaySonPrice.setTextColor(context.resources.getColor(R.color.color_2dd186))
+              }
+          }
        }
 
-    }
-
-    override fun onItemSwap(from: Int, target: Int) {
-        val s = data[from]
-        data.removeAt(from)
-        data.add(target, s)
-        notifyItemMoved(from, target)
-    }
-
-    override fun onItemMoved(position: Int) {
-        data.removeAt(position)
-        notifyItemRemoved(position)
     }
 
 }
