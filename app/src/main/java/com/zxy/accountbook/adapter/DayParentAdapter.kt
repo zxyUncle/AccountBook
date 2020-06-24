@@ -42,8 +42,14 @@ class DayParentAdapter : BaseQuickAdapter<BillBean, BaseViewHolder>(R.layout.ada
                 ivDayParentTop.visible(0)
             }
         }
+    }
 
-
+    /**
+     * 更新扩展开
+     */
+    fun  setExtend(positon:Int){
+        data[positon].isExtend = !data[positon].isExtend
+        notifyDataSetChanged()
     }
 
 

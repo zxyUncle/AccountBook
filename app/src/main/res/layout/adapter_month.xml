@@ -7,56 +7,23 @@
     app:cardElevation="@dimen/dp2"
     app:cardUseCompatPadding="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dp10">
 
         <TextView
-            android:id="@+id/tvMonthName"
+            android:id="@+id/tvYearName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="一月"
+            android:text="2020"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/dp30"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/mView"
-            android:layout_width="0.5dp"
-            android:layout_height="@dimen/dp15"
-            android:layout_marginLeft="@dimen/dp15"
-            android:background="@color/color_898989"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/tvMonthName"
-            app:layout_constraintRight_toLeftOf="@id/mTextView"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/mTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp15"
-            android:text="收入："
-            android:textColor="#4CAF50"
-            android:textSize="@dimen/dp20"
-            app:layout_constraintLeft_toRightOf="@id/mView"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/mTextView1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="支出："
-            android:textColor="#E91E63"
-            android:textSize="@dimen/dp20"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/mTextView"
-            app:layout_constraintTop_toBottomOf="@id/mTextView" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

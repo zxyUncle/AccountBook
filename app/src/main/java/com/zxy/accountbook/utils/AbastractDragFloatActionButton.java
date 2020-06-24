@@ -113,11 +113,11 @@ public abstract class AbastractDragFloatActionButton extends RelativeLayout {
                     //靠右吸附
                     animate().setInterpolator(new DecelerateInterpolator())
                             .setDuration(500)
-                            .xBy(parentWidth - getWidth() - getX())
+                            .xBy(parentWidth - getWidth() - getX()-100)
                             .start();
                 } else {
                     //靠左吸附
-                    ObjectAnimator oa = ObjectAnimator.ofFloat(this, "x", getX(), 0);
+                    ObjectAnimator oa = ObjectAnimator.ofFloat(this, "x", getX(), 100);
                     oa.setInterpolator(new DecelerateInterpolator());
                     oa.setDuration(500);
                     oa.start();

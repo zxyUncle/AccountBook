@@ -10,17 +10,17 @@ import kotlinx.android.synthetic.main.adapter_month.view.*
 /**
  * Created by zxy on 2020/6/23 0023 12:10
  * ******************************************
- * * 月份适配器
+ * * 年份适配器
  * ******************************************
  */
-class MonthAdapter : BaseQuickAdapter<BillBean, BaseViewHolder>(R.layout.adapter_month),
-    MyItemTouchHelperCallback.OnItemPositionListener {
+class YearAdapter : BaseQuickAdapter<BillBean, BaseViewHolder>(R.layout.adapter_month),
+    MyItemTouchHelperCallback.OnItemPositionListener  {
     override fun convert(holder: BaseViewHolder, item: BillBean) {
         holder.itemView.run {
-            tvYearName.text = "${item.monthName}"
-            if (item.isExtend) {
+            tvYearName.text = "${item.yearName}"
+            if(item.isExtend){
                 tvYearName.setTextColor(context.resources.getColor(R.color.color_5381ff))
-            } else {
+            }else{
                 tvYearName.setTextColor(context.resources.getColor(R.color.color_333333))
             }
         }

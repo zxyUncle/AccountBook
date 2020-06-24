@@ -1,6 +1,5 @@
 package com.zxy.accountbook.presenter
 
-import android.util.Log
 import com.zxy.accountbook.empty.BillBean
 import com.zxy.accountbook.empty.DataBean
 import com.zxy.accountbook.utils.TimeUitls
@@ -8,11 +7,7 @@ import com.zxy.accountbook.utils.snackbar.ZToast
 import com.zxy.accountbook.view.MainActivity
 import com.zxy.zxymvp.mvp.base.BasePresenter
 import org.litepal.LitePal
-import org.litepal.exceptions.DataSupportException
 import org.litepal.extension.find
-import org.litepal.extension.findAsync
-import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Created by zxy on 2020/6/9 0009 22:14
@@ -77,6 +72,66 @@ class MainPresenter : BasePresenter<MainActivity>() {
         }
         view.bindData(listBill as MutableList<BillBean>)
 
+    }
+
+    /**
+     * 查询所有年
+     */
+    fun selectYearAll() {
+        var list: MutableList<BillBean> = mutableListOf()
+        var listBill = LitePal.where("yearName > 1993")
+            .find<BillBean>() as MutableList<BillBean>
+        list.addAll(listBill)
+        if (listBill.isNotEmpty()) {
+            list = removeDuplicateYear(listBill)
+            for (index in list.indices) {
+                if (list[index].yearName == TimeUitls.getYear()) {
+                    list[index].isExtend = true
+                }
+
+            }
+        }
+        view.bindDataYear(list)
+
+    }
+
+    /**
+     * 查询所有月
+     */
+    fun selectMonthAll(todyYear:Int) {
+        var list: MutableList<BillBean> = mutableListOf()
+        var listBill = LitePal.where("yearName=?",todyYear.toString())
+            .find<BillBean>() as MutableList<BillBean>
+        list.addAll(listBill)
+        if (listBill.isNotEmpty()) {
+            list = removeDuplicateMonth(listBill)
+            for (index in list.indices) {
+                if (list[index].yearName == TimeUitls.getYear()) {
+                    list[index].isExtend = true
+                }
+            }
+        }
+        view.bindDataMonth(list)
+
+    }
+
+    //1.循环list中所有的元素然后删除
+    private fun removeDuplicateYear(list: MutableList<BillBean>): MutableList<BillBean> {
+        for (i in 0 until list.size) {
+            for (j in list.size - 1 downTo i + 1) {
+                if (list[i].yearName == list[j].yearName) list.removeAt(j)
+            }
+        }
+        return list
+    }
+    //1.循环list中所有的元素然后删除
+    private fun removeDuplicateMonth(list: MutableList<BillBean>): MutableList<BillBean> {
+        for (i in 0 until list.size) {
+            for (j in list.size - 1 downTo i + 1) {
+                if (list[i].monthName == list[j].monthName) list.removeAt(j)
+            }
+        }
+        return list
     }
 
     /**
