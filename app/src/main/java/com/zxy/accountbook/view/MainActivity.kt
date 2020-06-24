@@ -30,6 +30,7 @@ class MainActivity : BaseMvpActivity<MainPresenter>() {
     private lateinit var viewYearDialog: View
     private lateinit var viewMonthDialog: View
     private var todyYear = 0
+    private var todyMonth = 0
 
     private val mDayAdapter by lazy {
         DayParentAdapter()
@@ -49,29 +50,28 @@ class MainActivity : BaseMvpActivity<MainPresenter>() {
         mRecyclerView.layoutManager = LinearLayoutManager(this)
         mRecyclerView.adapter = mDayAdapter
         tvTitle.text = "${TimeUitls.getData(System.currentTimeMillis(), "yyyy年MM月dd日")}  张三疯的笔记"
-        //监听
-        initListener()
         initYear()
         initMonth()
+        initListener()
         initData()
     }
 
     private fun initData() {
         //查询当月数据
         presenter.selectMonthAll(TimeUitls.getYear().toString(), TimeUitls.getMonth().toString())
+        presenter.selectYearAll()
+        presenter.selectMonthAll(todyYear)
     }
 
-    override fun hasToolBar() = false
+    override fun hasToolBar() = false //不使用父类的ToolBar
 
     private fun initListener() {
         //年
         llTitleLeft.setOnClickListener {
-            presenter.selectYearAll()
             BottomSheetDialogUtilsYear.instance.bottomSheetDialog()?.show()
         }
         //月
         llTitleRightIv.setOnClickListener {
-            presenter.selectMonthAll(todyYear)
             BottomSheetDialogUtilsMonth.instance.bottomSheetDialog()?.show()
         }
         //扩展开
@@ -94,13 +94,15 @@ class MainActivity : BaseMvpActivity<MainPresenter>() {
     /**
      * 月
      */
+    @SuppressLint("SetTextI18n")
     private fun initMonth() {
-        todyYear = TimeUitls.getYear()
+        todyMonth = TimeUitls.getYear()
         viewMonthDialog = layoutInflater.inflate(R.layout.bottom_sheet_year, null)
         BottomSheetDialogUtilsMonth.instance.init(this, viewMonthDialog, 0.8f)
         viewMonthDialog.rvBottomSheetYear.layoutManager = LinearLayoutManager(this)
         viewMonthDialog.rvBottomSheetYear.adapter = mMonthAdapter
         mMonthAdapter.setOnItemClickListener { adapter, view, position ->
+            todyMonth = mMonthAdapter.data[position].monthName
             tvTitle.text = "${TimeUitls.getData(
                 mMonthAdapter.data[position].timestamp,
                 "yyyy年MM月dd日"
@@ -112,11 +114,13 @@ class MainActivity : BaseMvpActivity<MainPresenter>() {
     //年
     @SuppressLint("SetTextI18n")
     private fun initYear() {
+        todyYear = TimeUitls.getYear()
         viewYearDialog = layoutInflater.inflate(R.layout.bottom_sheet_year, null)
         BottomSheetDialogUtilsYear.instance.init(this, viewYearDialog, 0.8f)
         viewYearDialog.rvBottomSheetYear.layoutManager = LinearLayoutManager(this)
         viewYearDialog.rvBottomSheetYear.adapter = mYearAdapter
         mYearAdapter.setOnItemClickListener { adapter, view, position ->
+            todyYear = mYearAdapter.data[position].yearName
             tvTitle.text =
                 "${TimeUitls.getData(mYearAdapter.data[position].timestamp, "yyyy年MM月dd日")}  张三疯的笔记"
             BottomSheetDialogUtilsYear.instance.bottomSheetDialog()?.cancel()
